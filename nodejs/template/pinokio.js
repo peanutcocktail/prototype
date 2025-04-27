@@ -3,7 +3,15 @@ module.exports = {
   icon: "icon.png",
   menu: async (kernel, info) => {
     let installed = info.exists("app/node_modules")
-    console.log({ installed })
+    let cmds = ["cursor", "windsurf", "code", ].filter((cmd) => {
+      return kernel.which(cmd)
+    }).map((cmd) => {
+      return {
+        text: cmd.toUpperCase(),
+        href: "app",
+        command: cmd
+      }
+    })
     let running = {
       install: info.running("install.js"),
       start: info.running("start.js"),
@@ -24,6 +32,10 @@ module.exports = {
           icon: "fa-solid fa-terminal",
           text: "Shell",
           href: "shell.js",
+        }, {
+          icon: "fa-solid fa-up-right-from-square",
+          text: "Open in...",
+          menu: cmds,
         }, {
           icon: "fa-solid fa-power-off",
           text: "Start",
@@ -52,6 +64,10 @@ module.exports = {
             text: "Open Web UI",
             href: local.url,
           }, {
+            icon: "fa-solid fa-up-right-from-square",
+            text: "Open in...",
+            menu: cmds,
+          }, {
             icon: 'fa-solid fa-terminal',
             text: "Terminal",
             href: "start.js",
@@ -66,6 +82,10 @@ module.exports = {
             icon: 'fa-solid fa-terminal',
             text: "Terminal",
             href: "start.js",
+          }, {
+            icon: "fa-solid fa-up-right-from-square",
+            text: "Open in...",
+            menu: cmds,
           }, {
             icon: "fa-solid fa-terminal",
             text: "Shell",
@@ -92,6 +112,10 @@ module.exports = {
           icon: "fa-solid fa-terminal",
           text: "Shell",
           href: "shell.js",
+        }, {
+          icon: "fa-solid fa-up-right-from-square",
+          text: "Open in...",
+          menu: cmds,
         }, {
           icon: "fa-solid fa-power-off",
           text: "Start",
