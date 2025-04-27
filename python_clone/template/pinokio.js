@@ -114,11 +114,11 @@ module.exports = {
       }
     } else {
       return [{
+        default: true,
         icon: "fa-solid fa-plug",
         text: "Install",
         href: "install.js",
       }, {
-        default: true,
         icon: "fa-solid fa-terminal",
         text: "Shell",
         href: "shell.js",

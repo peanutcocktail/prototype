@@ -13,7 +13,6 @@ module.exports = {
     if (input.path) {
       const folder_path = kernel.path("api", input.path)
       await fs.promises.cp(path.resolve(__dirname, "template"), folder_path, { recursive: true })
-
       const script = {
         "daemon": true,
         "run": [{
