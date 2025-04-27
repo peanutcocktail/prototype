@@ -6,11 +6,15 @@ module.exports = {
   icon: "minimal.png",
   description: "create a launcher for ANY command, with an initial install step",
   input: [{
+    title: "Start command",
+    key: "start"
+  }, {
     title: "Install command",
     key: "install"
   }, {
-    title: "Start command",
-    key: "start"
+    title: "Install check folder",
+    description: "Enter the folder path to check in order to determine if already installed",
+    key: "check"
   }],
   run: async (kernel, input) => {
     if (input.path) {
@@ -20,7 +24,6 @@ module.exports = {
         "run": [{
           "method": "shell.run",
           "params": {
-            "input": true,
             "message": input.install
           }
         }]
@@ -39,6 +42,12 @@ module.exports = {
         }]
       }
       await fs.promises.writeFile(path.resolve(folder_path, "start.json"), JSON.stringify(start_script, null, 2))
+
+
+      const check_json = {
+        path: input.check
+      }
+      await fs.promises.writeFile(path.resolve(folder_path, "check.json"), JSON.stringify(check_json, null, 2))
 
     } else {
       throw new Error("please specify a folder name")

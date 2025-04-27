@@ -1,8 +1,9 @@
+const check = require('./check.json')
 module.exports = {
   version: "3.7",
   icon: "icon.png",
   menu: async (kernel, info) => {
-    let installed = info.exists("app/env")
+    let installed = info.exists(check.path)
     console.log({ installed })
     let running = {
       install: info.running("install.json"),
