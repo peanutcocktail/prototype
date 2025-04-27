@@ -1,0 +1,9 @@
+{
+  "daemon": true,
+  "run": [{
+    "method": "shell.run",
+    "params": {
+      "message": ""
+    }
+  }]
+}
