@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 module.exports = {
-  type: "prototype",
+  version: "4.0",
   title: "command launcher",
   icon: "minimal.png",
   description: "create a launcher for ANY command",
@@ -9,7 +9,7 @@ module.exports = {
     title: "Command",
     key: "command"
   }],
-  run: async (kernel, input) => {
+  create: async (kernel, input) => {
     if (input.path) {
       const folder_path = kernel.path("api", input.path)
       await fs.promises.cp(path.resolve(__dirname, "template"), folder_path, { recursive: true })

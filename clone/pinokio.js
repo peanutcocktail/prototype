@@ -1,5 +1,5 @@
 module.exports = {
-  type: "prototype",
+  version: "4.0",
   title: "clone",
   icon: "git.png",
   description: "clone a git project",
@@ -7,7 +7,7 @@ module.exports = {
     title: "Git URL",
     key: "url"
   }],
-  run: async (kernel, input) => {
+  create: async (kernel, input) => {
     if (input.path) {
       await kernel.exec({
         message: `git clone ${input.url} ${input.path}`,

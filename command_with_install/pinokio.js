@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 module.exports = {
-  type: "prototype",
+  version: "4.0",
   title: "installable command launcher",
   icon: "minimal.png",
   description: "create a launcher for ANY command, with an initial install step",
@@ -16,7 +16,7 @@ module.exports = {
     description: "Enter the folder path to check in order to determine if already installed",
     key: "check"
   }],
-  run: async (kernel, input) => {
+  create: async (kernel, input) => {
     if (input.path) {
       const folder_path = kernel.path("api", input.path)
       await fs.promises.cp(path.resolve(__dirname, "template"), folder_path, { recursive: true })

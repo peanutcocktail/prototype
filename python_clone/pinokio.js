@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 module.exports = {
-  type: "prototype",
+  version: "4.0",
   title: "Clone a Python Project",
   icon: "python.png",
   description: "clone a python project",
@@ -10,7 +10,7 @@ module.exports = {
     description: "Enter a git url to clone from",
     key: "url"
   }],
-  run: async (kernel, input) => {
+  create: async (kernel, input) => {
     if (input.path) {
       // copy the template
       const folder_path = kernel.path("api", input.path)
