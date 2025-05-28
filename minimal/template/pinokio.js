@@ -9,9 +9,12 @@ module.exports = {
       href: "shell.js",
     }, {
       icon: "fa-brands fa-github",
-      text: "Publish to Github",
+      text: "Create a repo",
       shell: {
-        message: "gh repo create",
+        message: [
+          "gh auth login",
+          "gh repo create",
+        ],
         input: true
       }
     }, {
