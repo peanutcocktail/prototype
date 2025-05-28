@@ -7,6 +7,19 @@ module.exports = {
       icon: "fa-solid fa-terminal",
       text: "Shell",
       href: "shell.js",
+    }, {
+      icon: "fa-brands fa-github",
+      text: "Publish to Github",
+      shell: {
+        message: "gh repo create",
+        input: true
+      }
+    }, {
+      icon: "fa-brands fa-github",
+      text: "Publish to Github",
+      shell: {
+        message: "git push"
+      }
     }]
   }
 }
