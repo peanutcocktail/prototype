@@ -1,5 +1,5 @@
 module.exports = {
-  version: "3.7",
+  version: "4.0",
   icon: "icon.png",
   menu: async (kernel, info) => {
     return [{
@@ -7,10 +7,6 @@ module.exports = {
       icon: "fa-solid fa-power-off",
       text: "Start",
       href: "start.json"
-    }, {
-      icon: "fa-solid fa-terminal",
-      text: "Shell",
-      href: "shell.js",
     }]
   }
 }
