@@ -4,19 +4,23 @@ module.exports = {
   menu: async (kernel, info) => {
     return [{
       icon: "fa-brands fa-github",
+      text: "Login",
+      shell: {
+        message: "gh auth login --web",
+        input: true
+      }
+    }, {
+      icon: "fa-brands fa-github",
       text: "Create a repo",
       shell: {
-        message: [
-          "gh auth login",
-          "gh repo create",
-        ],
+        message: "gh repo create",
         input: true
       }
     }, {
       icon: "fa-brands fa-github",
       text: "Publish to Github",
       shell: {
-        message: "git push"
+        message: "gh repo create --public --source=. --push"
       }
     }]
   }
