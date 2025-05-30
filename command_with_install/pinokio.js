@@ -16,7 +16,7 @@ module.exports = {
     description: "Enter the folder path to check in order to determine if already installed",
     key: "check"
   }],
-  create: async (kernel, input) => {
+  run: async (kernel, input) => {
     if (input.path) {
       const folder_path = kernel.path("api", input.path)
       await fs.promises.cp(path.resolve(__dirname, "template"), folder_path, { recursive: true })

@@ -9,7 +9,7 @@ module.exports = {
     title: "Command",
     key: "command"
   }],
-  create: async (kernel, input) => {
+  run: async (kernel, input) => {
     if (input.path) {
       const folder_path = kernel.path("api", input.path)
       await fs.promises.cp(path.resolve(__dirname, "template"), folder_path, { recursive: true })
