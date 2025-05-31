@@ -6,6 +6,11 @@ module.exports = {
   run: [{
     method: "shell.run",
     params: {
+      message: "npm install -g @anthropic-ai/claude-code",
+    }
+  }, {
+    method: "shell.run",
+    params: {
       input: true,
       message: "claude"
     }
