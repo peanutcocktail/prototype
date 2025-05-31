@@ -5,27 +5,30 @@ module.exports = {
   title: "command launcher",
   icon: "minimal.png",
   description: "create a launcher for ANY command",
-  input: [{
-    title: "Command",
-    key: "command"
-  }],
-  run: async (kernel, input) => {
-    if (input.path) {
-      const folder_path = kernel.path("api", input.path)
-      await fs.promises.cp(path.resolve(__dirname, "template"), folder_path, { recursive: true })
-      const script = {
-        "run": [{
-          "method": "shell.run",
-          "params": {
-            "input": true,
-            "message": input.command
-          }
+  run: [
+    {
+      method: "input",
+      params: {
+        title: "Command Launcher",
+        form: [{
+          title: "Enter a command",
+          key: "command"
         }]
       }
-      await fs.promises.writeFile(path.resolve(folder_path, "start.json"), JSON.stringify(script, null, 2))
-
-    } else {
-      throw new Error("please specify a folder name")
+    },
+    {
+      method: async (req, ondata, kernel) => {
+        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true })
+        await fs.promises.writeFile(path.resolve(req.cwd, "start.json"), JSON.stringify({
+          "run": [{
+            "method": "shell.run",
+            "params": {
+              "input": true,
+              "message": req.params.command
+            }
+          }]
+        }, null, 2))
+      },
     }
-  }
+  ]
 }
