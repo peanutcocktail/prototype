@@ -20,11 +20,11 @@ module.exports = {
       method: async (req, ondata, kernel) => {
         await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true })
         await fs.promises.writeFile(path.resolve(req.cwd, "start.json"), JSON.stringify({
-          "run": [{
-            "method": "shell.run",
-            "params": {
-              "input": true,
-              "message": req.params.command
+          run: [{
+            method: "shell.run",
+            params: {
+              input: true,
+              message: req.params.command
             }
           }]
         }, null, 2))
