@@ -25,5 +25,11 @@ module.exports = {
         ],
       }
     },
+    {
+      method: "shell.run",
+      params: {
+        message: "npm install -g @anthropic-ai/claude-code",
+      }
+    }
   ]
 }
