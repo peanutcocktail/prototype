@@ -24,7 +24,7 @@ module.exports = {
             method: "shell.run",
             params: {
               input: true,
-              message: req.params.command
+              message: req.input.command
             }
           }]
         }, null, 2))

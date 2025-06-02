@@ -30,7 +30,7 @@ module.exports = {
           run: [{
             method: "shell.run",
             params: {
-              message: input.install
+              message: req.input.install
             }
           }]
         }, null, 2))
@@ -39,12 +39,12 @@ module.exports = {
             method: "shell.run",
             params: {
               input: true,
-              message: [ input.start ]
+              message: [ req.input.start ]
             }
           }]
         }, null, 2))
         await fs.promises.writeFile(path.resolve(req.cwd, "check.json"), JSON.stringify({
-          path: input.check
+          path: req.input.check
         }, null, 2))
 
       }
