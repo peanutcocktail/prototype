@@ -7,7 +7,12 @@ module.exports = {
   description: "create a python project",
   run: [{
     method: async (req, ondata, kernel) => {
-      await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true })
+      let src = path.resolve(__dirname, "template")
+      let dest = req.cwd
+      ondata({
+        raw: `\r\ncopying ${src} to ${dest}\r\n`
+      })
+      await fs.promises.cp(src, dest, { recursive: true })
     }
   }]
 }
