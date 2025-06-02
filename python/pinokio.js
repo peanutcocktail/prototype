@@ -7,6 +7,7 @@ module.exports = {
   description: "create a python project",
   run: [{
     method: async (req, ondata, kernel) => {
+      console.log({ req })
       let src = path.resolve(__dirname, "template")
       let dest = req.cwd
       ondata({
