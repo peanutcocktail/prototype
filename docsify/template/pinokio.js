@@ -11,20 +11,14 @@ module.exports = {
       }, {
         icon: "fa-solid fa-power-off",
         text: "Start",
-        shell: {
-          message: "docsify serve .",
-          path: "docs"
-        }
+        href: "start.js"
       }]
     } else {
       return [{
         default: true,
         icon: "fa-solid fa-power-off",
         text: "Start",
-        shell: {
-          message: "docsify serve .",
-          path: "docs"
-        }
+        href: "start.js"
       }]
     }
   }
