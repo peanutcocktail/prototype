@@ -21,8 +21,7 @@ module.exports = {
     },
     {
       method: async (req, ondata, kernel) => {
-        console.log(">>>>>>>>>", { req })
-        await fs.promises.cp(path.resolve(__dirname, "template"), req,cwd, { recursive: true, force: true })
+        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
         await fs.promises.cp(req.input.paths[0], path.resolve(req.cwd, 'docs'), { recursive: true, force: true })
       }
     },
