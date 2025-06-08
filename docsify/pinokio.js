@@ -9,7 +9,6 @@ module.exports = {
       method: "shell.run",
       params: {
         message: "npx docsify-cli init .",
-        path: 
       }
     },
     {
