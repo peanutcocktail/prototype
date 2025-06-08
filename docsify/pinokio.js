@@ -6,6 +6,13 @@ module.exports = {
   description: "generate a documentation for any markdown file",
   run: [
     {
+      method: "shell.run",
+      params: {
+        message: "npx docsify-cli init .",
+        path: 
+      }
+    },
+    {
       method: "filepicker.open",
       params: {
         title: "Select a folder with README.md",
@@ -13,15 +20,9 @@ module.exports = {
       }
     },
     {
-      method: "shell.run",
-      params: {
-        message: "npx docsify-cli init ."
-      }
-    },
-    {
       method: async (req, ondata, kernel) => {
         await fs.promises.cp(path.resolve(__dirname, "template/pinokio.js"), path.resolve(req.cwd, "pinokio.js"))
-        await fs.promises.cp(req.input.paths[0], ".", { recursive: true, force: true })
+        await fs.promises.cp(req.input.paths[0], req.cwd, { recursive: true, force: true })
       }
     },
   ]
