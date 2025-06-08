@@ -7,7 +7,8 @@ module.exports = {
       icon: "fa-solid fa-power-off",
       text: "Start",
       shell: {
-        message: "docsify serve ."
+        message: "docsify serve .",
+        path: "docs"
       }
     }]
   }

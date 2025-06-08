@@ -8,7 +8,7 @@ module.exports = {
     {
       method: "shell.run",
       params: {
-        message: "npx docsify-cli init .",
+        message: "npx docsify-cli init docs",
       }
     },
     {
@@ -21,7 +21,7 @@ module.exports = {
     {
       method: async (req, ondata, kernel) => {
         await fs.promises.cp(path.resolve(__dirname, "template/pinokio.js"), path.resolve(req.cwd, "pinokio.js"))
-        await fs.promises.cp(req.input.paths[0], req.cwd, { recursive: true, force: true })
+        await fs.promises.cp(req.input.paths[0], path.resolve(req.cwd, 'docs'), { recursive: true, force: true })
       }
     },
   ]
