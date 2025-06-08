@@ -1,15 +1,31 @@
 module.exports = {
   version: "4.0",
-//  icon: "icon.png",
   menu: async (kernel, info) => {
-    return [{
-      default: true,
-      icon: "fa-solid fa-power-off",
-      text: "Start",
-      shell: {
-        message: "docsify serve .",
-        path: "docs"
-      }
-    }]
+    let local = info.local("start.js")
+    if (local && local.url) {
+      return [{
+        default: true,
+        icon: "fa-solid fa-rocket",
+        text: "View",
+        href: local.url,
+      }, {
+        icon: "fa-solid fa-power-off",
+        text: "Start",
+        shell: {
+          message: "docsify serve .",
+          path: "docs"
+        }
+      }]
+    } else {
+      return [{
+        default: true,
+        icon: "fa-solid fa-power-off",
+        text: "Start",
+        shell: {
+          message: "docsify serve .",
+          path: "docs"
+        }
+      }]
+    }
   }
 }
