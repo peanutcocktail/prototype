@@ -1,4 +1,5 @@
 const fs = require('fs')
+const path = require('path')
 module.exports = {
   version: "4.0",
   title: "docsify",
