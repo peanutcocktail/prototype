@@ -6,12 +6,12 @@ module.exports = {
   icon: "icon.png",
   description: "generate a documentation for any markdown file",
   run: [
-    {
-      method: "shell.run",
-      params: {
-        message: "npx docsify-cli init docs",
-      }
-    },
+//    {
+//      method: "shell.run",
+//      params: {
+//        message: "npx docsify-cli init docs",
+//      }
+//    },
     {
       method: "input",
       params: {
