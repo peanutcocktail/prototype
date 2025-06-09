@@ -48,8 +48,8 @@ module.exports = {
     },
     {
       method: async (req, ondata, kernel) => {
-        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
         await fs.promises.cp(req.input.paths[0], path.resolve(req.cwd, 'docs'), { recursive: true, force: true })
+        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
       },
       next: null    // terminate
     },
@@ -66,11 +66,11 @@ module.exports = {
     },
     {
       method: async (req, ondata, kernel) => {
-        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
         await kernel.exec({
           message: `git clone ${req.input.url} docs`,
           path: req.cwd
         }, ondata)
+        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
       }
     },
   ]
