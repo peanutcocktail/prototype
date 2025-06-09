@@ -55,7 +55,6 @@ module.exports = {
     },
     {
       id: "git",
-      when: "{{local.type === 'git'}}",
       method: "input",
       params: {
         title: "Enter a git URL",
