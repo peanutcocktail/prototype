@@ -20,9 +20,56 @@ module.exports = {
       }
     },
     {
+      method: "input",
+      params: {
+        title: "Select a folder",
+        description: "Select a local folder or a remote git to generate a documentation from",
+        form: [{
+          title: "Select a type",
+          type: "select",
+          key: "type",
+          items: [{
+            value: 'local",
+            text: "Local Folder",
+          }, {
+            value: "git",
+            text: "Remote Git URL",
+          }]
+        }]
+      }
+    },
+    {
+      method: "local.set",
+      params: {
+        type: "{{input.type}}"
+      }
+    }
+    {
+      when: "{{local.type === 'local'}}",
       method: async (req, ondata, kernel) => {
         await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
         await fs.promises.cp(req.input.paths[0], path.resolve(req.cwd, 'docs'), { recursive: true, force: true })
+      },
+      next: null
+    },
+    {
+      when: "{{local.type === 'git'}}",
+      method: "input",
+      params: {
+        title: "Enter a git URL",
+        form: [{
+          title: "Git URL",
+          key: "url",
+        }]
+      }
+    },
+    {
+      method: async (req, ondata, kernel) => {
+        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
+        await kernel.exec({
+          message: `git clone ${req.input.url} docs`,
+          path: req.cwd
+        }, ondata)
       }
     },
   ]

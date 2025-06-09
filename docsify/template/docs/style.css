@@ -69,9 +69,6 @@ section.cover .cover-main>p:last-child a {
   color: rgba(0,0,0,0.8);
   background: rgba(0,0,100,0.05);
 }
-.sidebar li {
-  margin: 0;
-}
 .sidebar ul li a {
   color: rgba(0,0,0,0.8);
   line-height: 19px;
