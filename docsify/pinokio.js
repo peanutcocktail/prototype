@@ -29,7 +29,7 @@ module.exports = {
           type: "select",
           key: "type",
           items: [{
-            value: 'local",
+            value: "local",
             text: "Local Folder",
           }, {
             value: "git",
