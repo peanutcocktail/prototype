@@ -43,7 +43,7 @@ module.exports = {
       params: {
         type: "{{input.type}}"
       }
-    }
+    },
     {
       when: "{{local.type === 'local'}}",
       method: async (req, ondata, kernel) => {
