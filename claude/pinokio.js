@@ -12,6 +12,8 @@ module.exports = {
   }, {
     method: async (req, ondata, kernel) => {
       let json = await kernel.require(req.cwd, "pinokio.json")
+      console.log("json", json)
+      console.log("cwd", req.cwd)
       let menu = []
       if (json && json.plugin && json.plugin.menu) {
         menu = json.plugin.menu
