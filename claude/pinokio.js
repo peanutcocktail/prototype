@@ -1,4 +1,5 @@
 const fs = require('fs')
+const path = require('path')
 module.exports = {
   version: "4.0",
   title: "claude code",
@@ -22,7 +23,7 @@ module.exports = {
         }
       })
       console.log({ json })
-      await fs.promises.writeFile(path.resolve(req.cwd, "pinokio.json"), JSON.stringify(json, null, 2)
+      await fs.promises.writeFile(path.resolve(req.cwd, "pinokio.json"), JSON.stringify(json, null, 2))
     }
   }]
 }
