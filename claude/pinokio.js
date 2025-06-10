@@ -1,18 +1,33 @@
+const fs = require('fs')
 module.exports = {
   version: "4.0",
   title: "claude code",
   icon: "icon.webp",
-  description: "run claude code",
+  description: "add claude code to the menu",
   run: [{
     method: "shell.run",
     params: {
       message: "npm install -g @anthropic-ai/claude-code",
     }
   }, {
-    method: "shell.run",
-    params: {
-      input: true,
-      message: "claude"
+    method: async (req, ondata, kernel) => {
+      let json = await kernel.require(req.cwd, "pinokio.json")
+      let menu = []
+      if (json && json.plugin && json.plugin.menu) {
+        menu = json.plugin.menu
+      }
+      menu.push({
+        text: "Claude Code",
+        shell: {
+          message: "claude",
+          input: true
+        }
+      })
+      if (json.plugin) {
+        json.plugin.menu = menu
+      } else {
+        json.plugin = { menu }
+      }
     }
   }]
 }
