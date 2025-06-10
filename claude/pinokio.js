@@ -14,22 +14,15 @@ module.exports = {
       let json = await kernel.require(req.cwd, "pinokio.json")
       console.log("json", json)
       console.log("cwd", req.cwd)
-      let menu = []
-      if (json && json.plugin && json.plugin.menu) {
-        menu = json.plugin.menu
-      }
-      menu.push({
+      json.plugin.menu.push({
         text: "Claude Code",
         shell: {
           message: "claude",
           input: true
         }
       })
-      if (json.plugin) {
-        json.plugin.menu = menu
-      } else {
-        json.plugin = { menu }
-      }
+      console.log({ json })
+      await fs.promises.writeFile(path.resolve(req.cwd, "pinokio.json"), JSON.stringify(json, null, 2)
     }
   }]
 }
