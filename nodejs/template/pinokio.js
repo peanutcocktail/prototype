@@ -42,16 +42,12 @@ module.exports = {
         href: "start.js",
       }, {
         icon: "fa-solid fa-plug",
-        text: "Installing",
+        text: "Install",
         href: "install.js",
       }, {
         icon: "fa-solid fa-plug",
         text: "Update",
         href: "update.js",
-      }, {
-        icon: "fa-solid fa-plug",
-        text: "Install",
-        href: "install.js",
       }, {
         icon: "fa-regular fa-circle-xmark",
         text: "<div><strong>Reset</strong><div>Revert to pre-install state</div></div>",
@@ -66,6 +62,14 @@ module.exports = {
           href: local.url,
         }].concat(menu)
       }
+      if (running.shell) {
+        menu = [{
+          icon: "fa-solid fa-terminal",
+          text: "Shell",
+          href: "shell.js"
+        }].concat(menu)
+      }
+      return menu
     } else {
       return [{
         default: true,
