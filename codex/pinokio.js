@@ -5,10 +5,15 @@ module.exports = {
   title: "claude code",
   icon: "icon.webp",
   description: "add claude code to the menu",
+  pre: [{
+    title: "OpenAI API Key",
+    env: "OPENAI_API_KEY",
+    key: "openai.com",
+  }],
   run: [{
     method: "shell.run",
     params: {
-      message: "npm install -g @anthropic-ai/claude-code",
+      message: "npm install -g @openai/codex"
     }
   }, {
     method: "filepicker.open",
@@ -24,9 +29,9 @@ module.exports = {
       console.log("cwd", req.cwd)
       json.plugin.menu.push({
         icon: "fa-solid fa-laptop-code",
-        text: "Claude Code",
+        text: "OpenAI Codex",
         shell: {
-          message: "claude",
+          message: "codex",
           path: cwd,
           input: true
         }
