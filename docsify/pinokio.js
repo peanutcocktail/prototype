@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 module.exports = {
   version: "4.0",
+  type: "init",
   title: "docsify",
   icon: "icon.png",
   description: "generate a documentation for any markdown file",

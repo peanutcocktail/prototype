@@ -2,9 +2,10 @@ const fs = require('fs')
 const path = require('path')
 module.exports = {
   version: "4.0",
-  title: "claude code",
-  icon: "icon.webp",
-  description: "add claude code to the menu",
+  type: "plugin",
+  title: "OpenAI Codex",
+  icon: "icon.png",
+  description: "Add OpenAI Codex to the menu",
   pre: [{
     title: "OpenAI API Key",
     env: "OPENAI_API_KEY",

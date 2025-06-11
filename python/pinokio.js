@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 module.exports = {
   version: "4.0",
+  type: "init",
   title: "New Python Project",
   icon: "python.png",
   description: "create a python project",
