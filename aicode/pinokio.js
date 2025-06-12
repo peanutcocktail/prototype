@@ -26,7 +26,7 @@ module.exports = {
         image: "windsurf.png",
         text: "Windsurf",
         run: "windsurf ."
-      })
+      }])
       await fs.promises.writeFile(path.resolve(req.cwd, "pinokio.json"), JSON.stringify(json, null, 2))
     }
   }]
