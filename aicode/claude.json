@@ -1,6 +1,6 @@
 {
   "run": [{
-    "when": "{{which claude}}",
+    "when": "{{which('claude')}}",
     "method": "jump",
     "params": {
       "id": "run"

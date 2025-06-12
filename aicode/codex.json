@@ -5,7 +5,7 @@
     "key": "openai.com"
   }],
   "run": [{
-    "when": "{{which codex}}",
+    "when": "{{which('codex')}}",
     "method": "jump",
     "params": {
       "id": "run"
