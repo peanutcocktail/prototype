@@ -13,11 +13,11 @@ module.exports = {
       json.plugin.menu = json.plugin.menu.concat([{
         image: "/prototype/system/aicode/claude.png",
         text: "Claude Code",
-        href: "claude.json"
+        href: "/run/prototype/system/aicode/claude.json"
       }, {
         image: "/prototype/system/aicode/openai.webp",
         text: "OpenAI Codex",
-        href: "codex.json"
+        href: "/run/prototype/system/aicode/codex.json"
       }, {
         image: "/prototype/system/aicode/cursor.jpeg",
         text: "Cursor",
