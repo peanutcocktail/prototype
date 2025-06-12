@@ -2,7 +2,6 @@ const fs = require('fs')
 const path = require('path')
 module.exports = {
   version: "4.0",
-  type: "extension",
   title: "OpenAI Codex",
   icon: "icon.png",
   description: "Add OpenAI Codex to the menu",
