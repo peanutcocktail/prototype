@@ -11,19 +11,20 @@ module.exports = {
       let json = await kernel.require(req.cwd, "pinokio.json")
       console.log("json", json)
       json.plugin.menu = json.plugin.menu.concat([{
-        image: "claude.png",
+        image: "/prototype/system/aicode/claude.png",
         text: "Claude Code",
         href: "claude.json"
       }, {
+        image: "/prototype/system/aicode/openai.webp",
         image: "openai.webp",
         text: "OpenAI Codex",
         href: "codex.json"
       }, {
-        image: "cursor.jpeg",
+        image: "/prototype/system/aicode/cursor.jpeg",
         text: "Cursor",
         run: "cursor ."
       }, {
-        image: "windsurf.png",
+        image: "/prototype/system/aicode/windsurf.png",
         text: "Windsurf",
         run: "windsurf ."
       }])
