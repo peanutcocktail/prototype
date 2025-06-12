@@ -4,7 +4,7 @@ module.exports = {
   version: "4.0",
   type: "extension",
   title: "AI Coding",
-  icon: "icon.webp",
+  icon: "icon.jpg",
   description: "add claude code to the menu",
   run: [{
     method: async (req, ondata, kernel) => {
