@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 module.exports = {
   version: "4.0",
+  type: "init",
   title: "command launcher",
   icon: "minimal.png",
   description: "create a launcher for ANY command",

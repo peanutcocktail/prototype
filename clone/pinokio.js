@@ -1,5 +1,6 @@
 module.exports = {
   version: "4.0",
+  type: "init",
   title: "clone",
   icon: "git.png",
   description: "clone a git project",

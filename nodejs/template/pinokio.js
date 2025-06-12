@@ -38,7 +38,7 @@ module.exports = {
         menu: cmds,
       }, {
         icon: "fa-solid fa-power-off",
-        text: "Start App",
+        text: "Server",
         href: "start.js",
       }, {
         icon: "fa-solid fa-plug",

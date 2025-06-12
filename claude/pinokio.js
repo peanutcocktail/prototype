@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 module.exports = {
   version: "4.0",
-  type: "plugin",
+  type: "extension",
   title: "claude code",
   icon: "icon.webp",
   description: "add claude code to the menu",
