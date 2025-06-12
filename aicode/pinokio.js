@@ -16,7 +16,6 @@ module.exports = {
         href: "claude.json"
       }, {
         image: "/prototype/system/aicode/openai.webp",
-        image: "openai.webp",
         text: "OpenAI Codex",
         href: "codex.json"
       }, {
