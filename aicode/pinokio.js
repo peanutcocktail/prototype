@@ -32,7 +32,7 @@ module.exports = {
         }]
       }])
       await fs.promises.writeFile(path.resolve(req.cwd, "pinokio.json"), JSON.stringify(json, null, 2))
-      await fs.promises.cp(path.resolve(__dirname, "template"), path.resolve(req.cwd, ".pinokio/system"), { recursive: true })
+      await fs.promises.cp(path.resolve(__dirname, "template"), path.resolve(req.cwd, ".pinokio/system/aicode"), { recursive: true })
     }
   }]
 }
