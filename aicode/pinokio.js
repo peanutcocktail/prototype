@@ -12,21 +12,21 @@ module.exports = {
       console.log("json", json)
       json.plugin.menu = json.plugin.menu.concat([{
         text: "AI Coding",
-        image: ".pinokio/system/aicode/icon.jpg?raw=true",
+        image: ".pinokio/system/aicode/icon.jpg",
         menu: [{
-          image: ".pinokio/system/aicode/claude.png?raw=true",
+          image: ".pinokio/system/aicode/claude.png",
           text: "Claude Code",
           href: ".pinokio/system/aicode/claude.json"
         }, {
-          image: ".pinokio/system/aicode/openai.webp?raw=true",
+          image: ".pinokio/system/aicode/openai.webp",
           text: "OpenAI Codex",
           href: ".pinokio/system/aicode/codex.json"
         }, {
-          image: ".pinokio/system/aicode/cursor.jpeg?raw=true",
+          image: ".pinokio/system/aicode/cursor.jpeg",
           text: "Cursor",
           run: "cursor ."
         }, {
-          image: ".pinokio/system/aicode/windsurf.png?raw=true",
+          image: ".pinokio/system/aicode/windsurf.png",
           text: "Windsurf",
           run: "windsurf ."
         }]
