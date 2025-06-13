@@ -11,23 +11,28 @@ module.exports = {
       let json = await kernel.require(req.cwd, "pinokio.json")
       console.log("json", json)
       json.plugin.menu = json.plugin.menu.concat([{
-        image: "/prototype/system/aicode/claude.png",
-        text: "Claude Code",
-        href: "/run/prototype/system/aicode/claude.json"
-      }, {
-        image: "/prototype/system/aicode/openai.webp",
-        text: "OpenAI Codex",
-        href: "/run/prototype/system/aicode/codex.json"
-      }, {
-        image: "/prototype/system/aicode/cursor.jpeg",
-        text: "Cursor",
-        run: "cursor ."
-      }, {
-        image: "/prototype/system/aicode/windsurf.png",
-        text: "Windsurf",
-        run: "windsurf ."
+        text: "AI Coding",
+        image: ".pinokio/system/aicode/icon.jpg?raw=true",
+        menu: [{
+          image: ".pinokio/system/aicode/claude.png?raw=true",
+          text: "Claude Code",
+          href: ".pinokio/system/aicode/claude.json"
+        }, {
+          image: ".pinokio/system/aicode/openai.webp?raw=true",
+          text: "OpenAI Codex",
+          href: ".pinokio/system/aicode/codex.json"
+        }, {
+          image: ".pinokio/system/aicode/cursor.jpeg?raw=true",
+          text: "Cursor",
+          run: "cursor ."
+        }, {
+          image: ".pinokio/system/aicode/windsurf.png?raw=true",
+          text: "Windsurf",
+          run: "windsurf ."
+        }]
       }])
       await fs.promises.writeFile(path.resolve(req.cwd, "pinokio.json"), JSON.stringify(json, null, 2))
+      await fs.promises.cp(path.resolve(__dirname, "template"), path.resolve(req.cwd, ".pinokio/system"), { recursive: true })
     }
   }]
 }
