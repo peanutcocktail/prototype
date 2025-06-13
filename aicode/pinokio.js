@@ -9,18 +9,24 @@ module.exports = {
   run: [{
     method: async (req, ondata, kernel) => {
       let json = await kernel.require(req.cwd, "pinokio.json")
-      console.log("json", json)
+      console.log("cwd", req.cwd)
       json.plugin.menu = json.plugin.menu.concat([{
         text: "AI Coding",
         image: ".pinokio/system/aicode/icon.jpg",
         menu: [{
           image: ".pinokio/system/aicode/claude.png",
           text: "Claude Code",
-          href: ".pinokio/system/aicode/claude.json"
+          href: ".pinokio/system/aicode/claude.json",
+          params: {
+            cwd: "{{cwd}}"
+          }
         }, {
           image: ".pinokio/system/aicode/openai.webp",
           text: "OpenAI Codex",
-          href: ".pinokio/system/aicode/codex.json"
+          href: ".pinokio/system/aicode/codex.json",
+          params: {
+            cwd: "{{cwd}}"
+          }
         }, {
           image: ".pinokio/system/aicode/cursor.jpeg",
           text: "Cursor",

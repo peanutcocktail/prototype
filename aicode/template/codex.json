@@ -20,6 +20,7 @@
     "method": "shell.run",
     "params": {
       "message": "codex",
+      "path": "{{args.cwd}}",
       "input": true
     }
   }]

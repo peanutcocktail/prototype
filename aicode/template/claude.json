@@ -15,6 +15,7 @@
     "method": "shell.run",
     "params": {
       "message": "claude",
+      "path": "{{args.cwd}}",
       "input": true
     }
   }]
